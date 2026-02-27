@@ -7,7 +7,7 @@ on:
 jobs:
 
   compile:
-    runs-on: my-runner
+    runs-on: shrikant-runner
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +23,7 @@ jobs:
 
 
   test:
-    runs-on: self-hosted
+    runs-on: shrikant-runner
     needs: compile
     steps:
       - uses: actions/checkout@v4
@@ -40,7 +40,7 @@ jobs:
 
 
   build_project:
-    runs-on: self-hosted
+    runs-on: shrikant-runner
     needs: test
     steps:
       - uses: actions/checkout@v4
@@ -63,7 +63,7 @@ jobs:
 
 
   docker_build_push:
-    runs-on: self-hosted
+    runs-on: shrikant-runner
     needs: build_project
     steps:
       - uses: actions/checkout@v4
