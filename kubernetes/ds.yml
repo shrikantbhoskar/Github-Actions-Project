@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: shrikant0786/bankapp
+        image: shrikant0786/bankapp:${{ github.run_number }}
         ports:
         - containerPort: 8080
         env:
