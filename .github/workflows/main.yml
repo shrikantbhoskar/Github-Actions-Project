@@ -92,24 +92,6 @@ jobs:
           file: ./Dockerfile
                     
           
-  update_manifest:
-    runs-on: shrikant-runner
-    needs: docker_build_push
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Update image in Kubernetes manifest
-        run: |
-          sed -i 's|image: shrikant0786/bankapp.*|image: shrikant0786/bankapp:${{ github.run_number }}|g' kubernetes/*.yml
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.email "shrikantbhoskar321@gmail.com"
-          git config --global user.name "Shrikant"
-          git add .
-          git commit -m "Update image tag"
-          git push
+  
             
           
