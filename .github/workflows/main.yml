@@ -88,8 +88,10 @@ jobs:
         with:
           context: .
           push: true
-          tags: shrikant0786/bankapp:${{ github.run_number }}
-          file: ./Dockerfile
+          tags: 
+            shrikant0786/bankapp:${{ github.run_number }}
+            shrikant0786/bankapp:latest
+          file: Dockerfile
                     
           
   
