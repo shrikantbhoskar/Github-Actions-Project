@@ -92,3 +92,15 @@ jobs:
           shrikant0786/bankapp:${{ github.run_number }}
           shrikant0786/bankapp:latest
          file: Dockerfile
+
+      - name: Update Kubernetes Deployment Image
+        run: |
+         sed -i "s|image: shrikant0786/bankapp:.*|image: shrikant0786/bankapp:${{ github.run_number }}|g" kubernetes/ds.yml
+
+      - name: Commit and Push Updated Manifest
+        run: |
+         git config --global user.name "github-actions"
+         git config --global user.email "actions@github.com"
+         git add kubernetes/ds.yml
+         git commit -m "Update bankapp image to ${{ github.run_number }}"
+         git push
