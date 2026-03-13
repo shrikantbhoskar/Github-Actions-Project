@@ -86,14 +86,9 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: .
-          push: true
-          tags: 
-            shrikant0786/bankapp:${{ github.run_number }}
-            shrikant0786/bankapp:latest
-          file: Dockerfile
-                    
-          
-  
-            
-          
+         context: .
+         push: true
+         tags: |
+          shrikant0786/bankapp:${{ github.run_number }}
+          shrikant0786/bankapp:latest
+         file: Dockerfile
